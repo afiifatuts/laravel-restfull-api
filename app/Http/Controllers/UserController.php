@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
+
 class UserController extends Controller
 {
     //parameter : response
@@ -71,8 +72,10 @@ class UserController extends Controller
 
     public function update(UserUpdateRequest $request): UserResource
     {
+
         $data = $request->validated();
         $user = Auth::user();
+        /** @var \App\Models\User $user **/
 
         if (isset($data['name'])) {
             $user->name = $data['name'];
@@ -86,13 +89,15 @@ class UserController extends Controller
         return new UserResource($user);
     }
 
-    public function logout(Request $request):JsonResponse{
+    public function logout(Request $request): JsonResponse
+    {
+        /** @var \App\Models\User $user **/
         $user = Auth::user();
         $user->token = null;
         $user->save();
 
         return response()->json([
-            "data"=>true
+            "data" => true
         ])->setStatusCode(200);
     }
 }

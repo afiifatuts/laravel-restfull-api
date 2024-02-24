@@ -9,11 +9,18 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Contact extends Model
 {
+    protected $table = "contacts";
     protected $primaryKey = "id";
     protected $keyType = "int";
-    protected $table = "contacts";
-    protected $incrementing = true;
-    protected $timestamps = true;
+    public $incrementing = true;
+    public $timestamps = true;
+
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'email',
+        'phone',
+    ];
 
 
     public function user(): BelongsTo
