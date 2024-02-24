@@ -28,12 +28,13 @@ class User extends Model implements Authenticatable
         return $this->hasMany(Contact::class, "user_id", "id");
     }
 
-        /**
+    /**
      * Get the name of the unique identifier for the user.
      *
      * @return string
      */
-    public function getAuthIdentifierName(){
+    public function getAuthIdentifierName()
+    {
         return 'username';
     }
 
@@ -42,7 +43,8 @@ class User extends Model implements Authenticatable
      *
      * @return mixed
      */
-    public function getAuthIdentifier(){
+    public function getAuthIdentifier()
+    {
         return $this->username;
     }
 
@@ -51,7 +53,8 @@ class User extends Model implements Authenticatable
      *
      * @return string
      */
-    public function getAuthPassword(){
+    public function getAuthPassword()
+    {
         return $this->password;
     }
 
@@ -60,7 +63,8 @@ class User extends Model implements Authenticatable
      *
      * @return string
      */
-    public function getRememberToken(){
+    public function getRememberToken()
+    {
         return $this->token;
     }
 
@@ -70,7 +74,8 @@ class User extends Model implements Authenticatable
      * @param  string  $value
      * @return void
      */
-    public function setRememberToken($value){
+    public function setRememberToken($value)
+    {
         $this->token = $value;
     }
 
@@ -79,7 +84,8 @@ class User extends Model implements Authenticatable
      *
      * @return string
      */
-    public function getRememberTokenName(){
+    public function getRememberTokenName()
+    {
         return 'token';
     }
 }
