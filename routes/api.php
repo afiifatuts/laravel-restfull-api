@@ -35,4 +35,5 @@ Route::middleware(ApiAuthMiddleware::class)->group(function () {
 
     //tambahkan regex number
     Route::get('/contacts/{id}', [ContactController::class, 'get'])->where('id', '[0-9]+');
+    Route::put('/contacts/{id}', [ContactController::class, 'update'])->where('id', '[0-9]+');
 });
