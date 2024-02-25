@@ -36,8 +36,7 @@ class ContactController extends Controller
                     ]
                 ]
             ])->setStatusCode(404));
-
-            return new ContactResource($contact);
         }
+        return new ContactResource($contact);
     }
 }
